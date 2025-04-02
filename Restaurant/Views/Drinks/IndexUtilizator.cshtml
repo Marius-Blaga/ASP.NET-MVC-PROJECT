@@ -1,0 +1,31 @@
+﻿@model List<Drink>
+
+
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-6 text-end">
+            <h2>Bauturi</h2>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Denumire produs</th>
+                <th>Pret</th>
+                <th>Calorii</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.Name</td>
+                    <td>@entry.Price</td>
+                    <td>@entry.Calories kcal/100g</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

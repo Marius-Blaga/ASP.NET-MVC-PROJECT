@@ -1,0 +1,35 @@
+﻿@model Restaurant.Models.Dish
+
+@{
+    ViewData["Title"] = "Detalii - " + Model.Name;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Recomandări</h3>
+            @if (!string.IsNullOrEmpty(Model.Reccomendation))
+            {
+                <ul class="list-group">
+                    @foreach (var recommendation in Model.Reccomendation.Split('.'))
+                    {
+                        <li class="list-group-item">@recommendation.Trim()</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">Nu există recomandări disponibile.</p>
+            }
+        </div>
+        <div class="col-md-4">
+            <h3>@Model.Name</h3>
+        </div>
+        <div class="col-md-4">
+            <h3>Descriere</h3>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+
+    <a asp-action="IndexUtilizator" class="btn btn-secondary mt-3">Înapoi la meniu</a>
+</div>
